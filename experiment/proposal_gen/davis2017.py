@@ -28,17 +28,19 @@ Usage: import the module (see Jupyter notebooks for examples), or run from
 
 import os
 import time
+import sys
 import numpy as np
 
 import zipfile
 # import urllib.request
-from urllib2 import urlopen
+from urllib.request import urlopen
 import shutil
 import random
+sys.path.append('./proposal_gen')
 
-from .config import Config
-from . import utils
-from . import model as modellib
+from config.config import Config
+import utils
+import proposal_gen.model as modellib
 
 import torch
 import skimage
@@ -69,7 +71,7 @@ parser.add_argument("command",
                     metavar="<command>",
                     help="'train' or 'evaluate' on MS COCO")
 parser.add_argument('--dataset', required=False,
-                    default='/data1/shuangjiexu/data/DAVIS_2017',
+                    default='/home/administrator/data/DAVIS_2017/Train',
                     metavar="/path/to/davis/",
                     help='Directory of the DAVIS dataset')
 parser.add_argument('--year', required=False,
@@ -112,7 +114,7 @@ print("Augment method: ", args.augment_method)
 ############################################################
 
 # NEED DAVIS TOOL in https://github.com/fperazzi/davis-2017
-from davis import cfg, phase, io, DAVISLoader, Annotation
+from utils.davis import cfg, phase, io, DAVISLoader, Annotation
 
 an = Annotation(args.seq, single_object=0)
 OBJ_NUMBER = an.n_objects

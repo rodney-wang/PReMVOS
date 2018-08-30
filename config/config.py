@@ -17,13 +17,13 @@ class Config(object):
     
     TRACKER_MODEL_PROTOTXT = 'prototxt/test_online.prototxt'
 
-    DATA_ROOT = '/fid/shuangjiexu/data_buffer/DAVIS_2017'
+    DATA_ROOT = '/home/administrator/data/DAVIS_2017/Test-Dev'
     # flow data from opticalflow_flownet2
-    FLOW_ROOT = '/app/home/DAVIS_2017/Results/Segmentations/480p/opticalflow_flownet2/'
+    FLOW_ROOT = '/home/administrator/data/DAVIS_2017/Test-Dev/Flow/480p'
     
     # results of osvos or net
-    OSVOS_RESULTS_1 = '/app/home/baofusev3_2kiter' # '/app/home/osvos_results/DAVIS_2017/Results/'
-    OSVOS_RESULTS_2 = '/app/home/osvos_results/DAVIS_2017/Results/'
+    OSVOS_RESULTS_1 = '/home/administrator/data/DAVIS_2017/Test-Dev/Results' # '/app/home/osvos_results/DAVIS_2017/Results/'
+    OSVOS_RESULTS_2 = '/home/administrator/data/DAVIS_2017/Test-Dev/Results'
     # save path
     SAVE_PATH = 'out'
     # final result path
@@ -64,11 +64,11 @@ class Config(object):
         self.MASK_ROOT = os.path.join(self.DATA_ROOT, 'Annotations/480p/')
 
         if self.TARGET_DATASET == 'test-dev':
-            self.TRACKER_MODEL_ROOT = '/app/home/maskrefine_models/davis2017testdev'
+            self.TRACKER_MODEL_ROOT = '/home/administrator/data/DAVIS_2017/maskrefine_models/davis2017testdev'
         elif self.TARGET_DATASET == 'challenge':
-            self.TRACKER_MODEL_ROOT = '/app/home/maskrefine_models/davis2017challenge'
+            self.TRACKER_MODEL_ROOT = '/home/administrator/data/DAVIS_2017/maskrefine_models/davis2017challenge'
         else:
-            self.TRACKER_MODEL_ROOT = '/app/home/maskrefine_models/davis2017val'
+            self.TRACKER_MODEL_ROOT = '/home/administrator/data/DAVIS_2017/maskrefine_models/davis2017val'
         self.SEQUENCE_FILE_NAME = self.TARGET_DATASET + '.txt'
         # test seqence file path
         self.TEST_SEQUENCE_FILE = os.path.join(self.DATA_ROOT, 'ImageSets/2017', self.SEQUENCE_FILE_NAME)

@@ -4,7 +4,7 @@ import numpy as np
 
 def pth_nms(dets, thresh):
   """
-  dets has to be a tensor
+  dets has to be a tensorss
   """
   if not dets.is_cuda:
     x1 = dets[:, 1]
